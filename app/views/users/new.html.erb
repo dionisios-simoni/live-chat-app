@@ -4,10 +4,10 @@
       <div class="column">
         <h2 class="ui teal header">
           <div class="content">
-            Log-in to your account
+            Create an account
           </div>
         </h2>
-        <%= form_for(:session, html: { class: "ui large form", role: "form" }, url: login_path ) do |f| %>
+        <%= form_with(model: @user, html: { class: "ui large form", role: "form" }, local: true)  do |f| %>
           <div class="ui segment">
             <div class="field">
               <div class="ui left icon input">
@@ -21,13 +21,10 @@
                 <%= f.password_field :password, placeholder: "Password" %>
               </div>
             </div>
-            <%= f.button "Login", class: "ui fluid large teal submit button" %>
+            <%= f.button "Sign Up", class: "ui fluid large teal submit button" %>
           </div>
           <div class="ui error message"></div>
         <% end %>
-        <div class="ui message">
-          New to us? <%= link_to 'Sign Up', signup_path %>
-        </div>
       </div>
     </div>
   </div>
